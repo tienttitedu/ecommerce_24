@@ -1,0 +1,11 @@
+@import "bootstrap-sprockets";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+#carouselBlk,#header{background: url( asset-path('headerRepeat.png') ) repeat-x 0 0 #f7f7f7;}
+
+#srchFld {background: url( asset-path('search.png') ) no-repeat 4px center #fff;}
+
+.tag {background: url( asset-path('new.png') ) no-repeat 0 0; position: absolute; display:block; top: -4px;right: -18px; height:48px; width:48px;}
+
+#sidebar  li  a{font-weight:bold; background: url( asset-path('tabRepeatInactive.png') ) repeat-x 0 0; color:#262626;}

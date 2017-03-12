@@ -1,0 +1,22 @@
+<div id="footerSection">
+  <div class="container">
+    <div class="row">
+      <div class="span3">
+        <h5><%= t "view.layouts.footer.account" %></h5>
+      </div>
+      <div class="span3">
+        <h5><%= t "view.layouts.footer.information" %></h5>
+      </div>
+      <div class="span3">
+        <h5><%= t "view.layouts.footer.our_offer" %></h5>
+      </div>
+      <div id="socialMedia" class="span3 pull-right">
+        <h5><%= t "view.layouts.footer.social_media" %></h5>
+        <%= image_tag("facebook.png", alt: t("view.layouts.footer.fb")) %>
+        <%= image_tag("twitter.png", alt: t("view.layouts.footer.twitter")) %>
+        <%= image_tag("youtube.png", alt: t("view.layouts.footer.utube")) %>
+      </div>
+    </div>
+    <p class="pull-right">&copy; <%= t "view.layouts.footer.e-commerce" %></p>
+  </div>
+</div>
