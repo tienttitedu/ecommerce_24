@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= t "title" %></title>
-  <%= csrf_meta_tags %>
-
-  <%= stylesheet_link_tag "application", media: "all",
-    "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  <title><%= full_title yield(:title) %></title>
+  <%= render "layouts/rails_default" %>
+  <%=stylesheet_link_tag "bootstrap.min", media: "screen"%>
+  <%=stylesheet_link_tag "base", media: "screen"%>
+  <%=stylesheet_link_tag "bootstrap-responsive.min"%>
+  <%=stylesheet_link_tag "font-awesome"%>
+  <%=stylesheet_link_tag "prettify"%>
 </head>
-
 <body>
-  <%= yield %>
+  <%= render "layouts/header" %>
+  <%= render "layouts/sidebar" %>
+  <div id="mainBody">
+    <div class="container">
+      <%= render "layouts/flash" %>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render "layouts/footer" %>
 </body>
 </html>

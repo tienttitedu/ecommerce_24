@@ -1,0 +1,47 @@
+<div id="header">
+  <div class="container">
+    <div id="welcomeLine" class="row">
+      <div class="span6"><%= t "welcome" %>
+      </div>
+      <div class="span6">
+        <div class="pull-right">
+          <%= link_to "#" do %>
+            <span class="btn btn-mini btn-primary">
+              <i class="icon-shopping-cart icon-white"></i>
+              <%= t "items_in_cart" %>
+            </span>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="logoArea" class="navbar">
+      <a id="smallScreen" data-target="#topMenu" data-toggle="collapse"
+        class="btn btn-navbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </a>
+      <div class="navbar-inner navwidth">
+        <%= link_to root_path, class: "brand" do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+        <form class="form-inline navbar-search" method="post" action="" >
+          <input id="srchFld" class="srchTxt" type="text" />
+          <select class="srchTxt"></select>
+          <button type="submit" id="submitButton" class="btn btn-primary">
+            <%= t "search" %></button>
+        </form>
+        <ul id="topMenu" class="nav pull-right">
+          <li class=""><%= link_to t("view.layouts.header.s_offer") %></li>
+          <li class=""><%= link_to t("view.layouts.header.contact") %></li>
+          <li class="">
+            <%= link_to "#" do %>
+              <span class="btn btn-large btn-success">
+              <%= t "view.layouts.header.login" %></span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
