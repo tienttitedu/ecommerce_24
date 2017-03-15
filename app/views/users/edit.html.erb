@@ -1,10 +1,14 @@
-<% provide :title, t("view.users.new.signup") %>
-<h1><%= t "sign up" %></h1>
+<% provide :title, t("view.users.edit.update") %>
+<h1><%= t "update_your_profile" %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-2">
     <%= form_for @user do |f| %>
       <%= render "shared/error_messages", object: f.object %>
+      <div class="gravatar_edit span5 offset2">
+        <%= gravatar_for @user %>
+        <%= link_to t("view.users.edit.change"), t("garavatar")%>
+      </div>
       <%= f.label :name %>
       <%= f.text_field :name, class: "form-control" %>
 
@@ -22,9 +26,10 @@
 
       <%= f.label :password_confirmation, t("confirmation") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
+
       <div class = "btn_size">
         <br>
-        <%= f.submit t("view.users.new.btn_create"),
+        <%= f.submit t("view.users.edit.btn_update"),
           class: "btn btn-primary wd" %>
       </div>
     <% end %>

@@ -1,0 +1,22 @@
+<% provide :title, t("view.sessions.new.login") %>
+<h1><% t "log_in" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <%= form_for :session, url: login_path do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+      <div class = "btn_size">
+        <br>
+        <%= f.submit t("view.sessions.new.btn_submit"),
+          class: "btn btn-primary wd" %>
+      </div>
+    <% end %>
+    <p><% t "new_user_?" %><%= link_to t("view.sessions.new.signup_now"),
+      signup_path %></p>
+  </div>
+</div>
