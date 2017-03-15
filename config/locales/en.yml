@@ -1,5 +1,7 @@
 en:
   Commerce: "E.Commerce-24"
+  welcome: "Welcome to E-Commerce"
+  user_invalid: "User invalid"
   view:
     layouts:
       footer:
@@ -15,11 +17,18 @@ en:
       header:
         user: "Guest"
         all: "ALL"
-        a-z: "A-Z"
+        a_z: "A-Z"
         mobile: "MOBILE"
         laptop: "LAPTOP"
         s_offer: "Specials Offer"
         contact: "Contact"
         login: "Login"
+        signup: "Signup"
       sidebar:
         payment_method: "Payment Methods"
+    users:
+      new:
+        btn_create: "Create my account"
+        signup: "Sign up"
+      show:
+        profile: "Profile"

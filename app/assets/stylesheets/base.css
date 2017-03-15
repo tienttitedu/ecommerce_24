@@ -70,7 +70,7 @@
 .navbar .nav.pull-right, #sideManu {overflow:hidden;}
 #logoArea  #smallScreen {margin: 21px 14px 0 0;}
 .navbar-search {margin-top: 8px;}
-.navwidth {width: 1133px;}
+.navwidth {width: 1171px; padding-right: 11px;}
 /* Responsive--------------------- */
 /* Large desktop */
 @media (min-width: 1200px) {  }
