@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_many :review
   has_many :suggest_product
 
-  enum status: {admin: Settings.admin, user: Settings.user,
-      guest: Settings.guest}
+  enum role: {user: Settings.user, admin: Settings.admin}
 
   validates :name, presence: true, length: {maximum: Settings.name_maximum}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -16,6 +15,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.password_minimum}, allow_nil: true
 
   has_secure_password
+
+  scope :list_users_desc, -> {order(created_at: :desc)}
 
   before_save  :downcase_email
 

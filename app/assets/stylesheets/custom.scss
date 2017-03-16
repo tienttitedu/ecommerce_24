@@ -51,7 +51,8 @@ input {
 
 .field_with_errors {
   @extend .has-error;
-   color: #f2dede;
+  color: #f2dede;
+  label {color: #333;}
 }
 
 /* typography */
@@ -82,3 +83,18 @@ p {
 }
 
 .alert {text-align: center;}
+
+.btn_size {width: 100%;}
+.btn_size .wd{width: 100%;}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
+  }
+}

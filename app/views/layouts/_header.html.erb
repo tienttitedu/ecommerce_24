@@ -1,8 +1,11 @@
 <div id="header">
   <div class="container">
     <div id="welcomeLine" class="row">
-      <div class="span6"><%= t "welcome" %>
-      </div>
+      <% if logged_in? %>
+        <div class="span6"><%= t "welcome_!" %> <%= current_user.name %></div>
+      <% else %>
+        <div class="span6"><%= t "welcome_guest" %></div>
+      <% end %>
       <div class="span6">
         <div class="pull-right">
           <%= link_to "#" do %>
@@ -32,20 +35,44 @@
             <%= t "search" %></button>
         </form>
         <ul id="topMenu" class="nav pull-right">
-          <li class=""><%= link_to t("view.layouts.header.s_offer") %></li>
-          <li class=""><%= link_to t("view.layouts.header.contact") %></li>
-          <li class="">
-            <%= link_to "#" do %>
-              <span class="btn btn-large btn-success">
-              <%= t "view.layouts.header.login" %></span>
+          <li><%= link_to t("view.layouts.header.s_offer") %></li>
+          <li><%= link_to t("view.layouts.header.contact") %></li>
+          <% if logged_in? %>
+            <%  if current_user.admin? %>
+              <li>
+                <%= link_to admin_users_path do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.users" %></span>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to current_user do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.profile" %></span>
+                <% end %>
+              </li>
             <% end %>
-          </li>
-           <li class="">
-            <%= link_to new_user_path do %>
-              <span class="btn btn-large btn-success">
-              <%= t "view.layouts.header.signup" %></span>
-            <% end %>
-          </li>
+            <li>
+              <%= link_to logout_path, method: :delete do %>
+                <span class="btn btn-large btn-success">
+                <%= t "view.layouts.header.logout" %></span>
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to login_path do %>
+                <span class="btn btn-large btn-success">
+                <%= t "view.layouts.header.login" %></span>
+              <% end %>
+            </li>
+             <li>
+              <%= link_to new_user_path do %>
+                <span class="btn btn-large btn-success">
+                <%= t "view.layouts.header.signup" %></span>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

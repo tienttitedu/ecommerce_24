@@ -2,7 +2,32 @@ en:
   Commerce: "E.Commerce-24"
   welcome: "Welcome to E-Commerce"
   user_invalid: "User invalid"
+  cate_invalid: "Category invalid"
+  error_login: "Invalid email/password combination"
+  garavatar: "http://gravatar.com/emails"
+  pl_login: "Please log in."
+  ud_pf_success: "Update Profile Successed"
+  ud_cate_success: "Update Category Successed"
+  user_not_exist: "User does not exist"
+  user_delete: "User deleted"
+  cate_not_exist: "Category does not exist"
+  cate_delete: "Category deleted"
+  please_login_user_admin: "Access denied"
+  you_sure: "Are you sure?"
+  errors_parent: "Parent doesn't exist"
+  create_success: "Create successed"
   view:
+    admin:
+      users:
+        index:
+          all_users: "User Management"
+          delete: "Delete"
+      categories:
+        index:
+          products: "Products"
+          categories: "Categories"
+          all_users: "Users"
+          ed: "Edit"
     layouts:
       footer:
         account: "ACCOUNT"
@@ -13,7 +38,6 @@ en:
         fb: "facebook"
         twitter: "twitter"
         utube: "youtube"
-
       header:
         user: "Guest"
         all: "ALL"
@@ -24,6 +48,9 @@ en:
         contact: "Contact"
         login: "Login"
         signup: "Signup"
+        logout: "Logout"
+        profile: "Profile"
+        admin: "Admin"
       sidebar:
         payment_method: "Payment Methods"
     users:
@@ -32,3 +59,13 @@ en:
         signup: "Sign up"
       show:
         profile: "Profile"
+      edit:
+        change: "Change"
+        update: "Update"
+        btn_update: "Save Update"
+        update_pf: "Update Your Profiles"
+    sessions:
+      new:
+        login: "Login"
+        btn_submit: "Login"
+        signup_now: "Sign up now!"
