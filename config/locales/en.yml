@@ -2,6 +2,10 @@ en:
   Commerce: "E.Commerce-24"
   welcome: "Welcome to E-Commerce"
   user_invalid: "User invalid"
+  error_login: "Invalid email/password combination"
+  garavatar: "http://gravatar.com/emails"
+  pl_login: "Please log in."
+  ud_pf_success: "Update Profile Successed"
   view:
     layouts:
       footer:
@@ -24,6 +28,8 @@ en:
         contact: "Contact"
         login: "Login"
         signup: "Signup"
+        logout: "Logout"
+        profile: "Profile"
       sidebar:
         payment_method: "Payment Methods"
     users:
@@ -32,3 +38,13 @@ en:
         signup: "Sign up"
       show:
         profile: "Profile"
+      edit:
+        change: "Change"
+        update: "Update"
+        btn_update: "Save Update"
+        update_pf: "Update Your Profiles"
+    sessions:
+      new:
+        login: "Login"
+        btn_submit: "Login"
+        signup_now: "Sign up now!"
