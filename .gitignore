@@ -43,3 +43,4 @@ bower.json
 
 config/database.yml
 /test
+db/seeds.rb

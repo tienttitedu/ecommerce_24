@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_many :review
   has_many :suggest_product
 
-  enum status: {admin: Settings.admin, user: Settings.user,
-      guest: Settings.guest}
+  enum role: {user: Settings.user, admin: Settings.admin}
 
   validates :name, presence: true, length: {maximum: Settings.name_maximum}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

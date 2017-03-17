@@ -6,7 +6,17 @@ en:
   garavatar: "http://gravatar.com/emails"
   pl_login: "Please log in."
   ud_pf_success: "Update Profile Successed"
+  user_not_exist: "User does not exist"
+  user_delete: "User deleted"
+  please_login_user_admin: "Access denied"
+  You sure?: You sure?
+
   view:
+    admin:
+      users:
+        index:
+          all_users: "User Management"
+          delete: "Delete"
     layouts:
       footer:
         account: "ACCOUNT"
@@ -17,7 +27,6 @@ en:
         fb: "facebook"
         twitter: "twitter"
         utube: "youtube"
-
       header:
         user: "Guest"
         all: "ALL"
@@ -30,6 +39,7 @@ en:
         signup: "Signup"
         logout: "Logout"
         profile: "Profile"
+        users: "Users"
       sidebar:
         payment_method: "Payment Methods"
     users:

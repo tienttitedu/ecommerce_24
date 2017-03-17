@@ -38,12 +38,21 @@
           <li class=""><%= link_to t("view.layouts.header.s_offer") %></li>
           <li class=""><%= link_to t("view.layouts.header.contact") %></li>
           <% if logged_in? %>
-            <li class="">
-              <%= link_to current_user do %>
-                <span class="btn btn-large btn-success">
-                <%= t "view.layouts.header.profile" %></span>
-              <% end %>
-            </li>
+            <%  if is_admin? %>
+              <li class="">
+                <%= link_to admin_users_path do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.users" %></span>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="">
+                <%= link_to current_user do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.profile" %></span>
+                <% end %>
+              </li>
+            <% end %>
             <li class="">
               <%= link_to logout_path, method: :delete do %>
                 <span class="btn btn-large btn-success">
