@@ -30,4 +30,11 @@ module SessionsHelper
     session[:forwarding_url] = request.original_url if request.get?
   end
 
+  def verify_admin
+    unless current_user.admin?
+      flash[:danger] = t "please_login_user_admin"
+      redirect_to root_url
+    end
+  end
+
 end

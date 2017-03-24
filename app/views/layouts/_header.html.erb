@@ -35,29 +35,38 @@
             <%= t "search" %></button>
         </form>
         <ul id="topMenu" class="nav pull-right">
-          <li class=""><%= link_to t("view.layouts.header.s_offer") %></li>
-          <li class=""><%= link_to t("view.layouts.header.contact") %></li>
+          <li><%= link_to t("view.layouts.header.s_offer") %></li>
+          <li><%= link_to t("view.layouts.header.contact") %></li>
           <% if logged_in? %>
-            <li class="">
-              <%= link_to current_user do %>
-                <span class="btn btn-large btn-success">
-                <%= t "view.layouts.header.profile" %></span>
-              <% end %>
-            </li>
-            <li class="">
+            <%  if current_user.admin? %>
+              <li>
+                <%= link_to admin_users_path do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.users" %></span>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to current_user do %>
+                  <span class="btn btn-large btn-success">
+                  <%= t "view.layouts.header.profile" %></span>
+                <% end %>
+              </li>
+            <% end %>
+            <li>
               <%= link_to logout_path, method: :delete do %>
                 <span class="btn btn-large btn-success">
                 <%= t "view.layouts.header.logout" %></span>
               <% end %>
             </li>
           <% else %>
-            <li class="">
+            <li>
               <%= link_to login_path do %>
                 <span class="btn btn-large btn-success">
                 <%= t "view.layouts.header.login" %></span>
               <% end %>
             </li>
-             <li class="">
+             <li>
               <%= link_to new_user_path do %>
                 <span class="btn btn-large btn-success">
                 <%= t "view.layouts.header.signup" %></span>

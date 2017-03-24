@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :check_session_logged, only: :new
-  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
+    @user = User.find_by id: params[:id]
+    return if @user
+    flash[:danger] = t "user_invalid"
+    redirect_to root_url
   end
 
   def new
