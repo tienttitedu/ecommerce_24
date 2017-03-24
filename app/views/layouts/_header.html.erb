@@ -40,9 +40,9 @@
           <% if logged_in? %>
             <%  if current_user.admin? %>
               <li>
-                <%= link_to admin_users_path do %>
+                <%= link_to admin_categories_path do %>
                   <span class="btn btn-large btn-success">
-                  <%= t "view.layouts.header.users" %></span>
+                  <%= t "view.layouts.header.admin" %></span>
                 <% end %>
               </li>
             <% else %>

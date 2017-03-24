@@ -16,6 +16,7 @@ en:
   you_sure: "Are you sure?"
   errors_parent: "Parent doesn't exist"
   create_success: "Create successed"
+  new: "New"
   view:
     admin:
       users:
@@ -28,6 +29,8 @@ en:
           categories: "Categories"
           all_users: "Users"
           ed: "Edit"
+        new:
+          btn_create: "Create Category"
     layouts:
       footer:
         account: "ACCOUNT"

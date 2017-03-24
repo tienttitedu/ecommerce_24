@@ -1,0 +1,26 @@
+<div class="span9">
+  <div class="col-xs-4 col-md-4">
+    <h3><%= t "new_category" %></h3>
+  </div>
+  <%= render "shared/nav_admin" %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+    <%= form_for [:admin, @category] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
+
+      <%= f.select :parent_id, Category.all.map{|c| [c.name, c.id]},
+        include_blank: true %>
+
+      <div class="btn_size">
+        <br>
+        <%= f.submit t("view.admin.categories.new.btn_create"),
+        class: "btn btn-primary wd" %>
+      </div>
+    <% end %>
+  </div>
+</div>
