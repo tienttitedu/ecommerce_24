@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="thumbnail">
+       <%= link_to gravatar_for( review.user, size: Settings.size_image_min),
+        review.user %>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong><%= link_to review.user.name, review.user %></strong>
+          <span class="text-muted"><%= t"__post_" %><%= time_ago_in_words(review.created_at) %> ago
+          </span>
+        </div>
+        <div class="panel-body">
+          <%= review.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

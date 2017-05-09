@@ -1,0 +1,33 @@
+<div class="span9">
+  <div class="col-xs-4 col-md-4">
+    <h3><%= t "Orders" %></h3>
+  </div>
+  <%= render "shared/nav_admin"%>
+  <br>
+  <div class="col-md-offset-4">
+    <%= will_paginate %>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t "id" %></th>
+        <th><%= t"total" %></th>
+        <th><%= t"address_shipping" %></th>
+         <th><%= t "user_id" %></th>
+      </tr>
+    </thead>
+    <% @orders.each do |order| %>
+      <tbody>
+        <tr>
+          <td><%= link_to order.id%></td>
+          <td><%= number_to_currency order.subtotal %></td>
+          <td><%= order.address_shipping %></td>
+          <td><%= order.user_id %></td>
+        </tr>
+      <tbody>
+    <% end %>
+  </table>
+      <div class="col-md-offset-4">
+        <%= will_paginate %>
+      </div>
+</div>

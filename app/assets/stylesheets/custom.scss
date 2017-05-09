@@ -6,6 +6,7 @@
 #carouselBlk,#header{background: url( asset-path('headerRepeat.png') ) repeat-x 0 0 #f7f7f7;}
 
 #srchFld {background: url( asset-path('search.png') ) no-repeat right 0px #fff;}
+#sx {background: url( asset-path('search.png') ) no-repeat center 0px #fff;}
 #srchFld {height: 29px;}
 .icox {height:50px; margin-top:9px;}
 
@@ -97,4 +98,57 @@ p {
     padding: 10px 0;
     border-bottom: 1px solid #e6e6e6;
   }
+}
+
+.picture input {
+  border: 0;
+}
+
+.rsimg {
+  width: 60px;
+}
+
+.addlink {
+  float: right;
+}
+
+.list-group-submenu {
+  margin-left:20px;
+}
+
+.thumbnail {
+    padding:0px;
+}
+
+.panel {
+  position:relative;
+}
+
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
+}
+
+.panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+
+.panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
+}
+
+.btn-post{
+  float:right;
 }

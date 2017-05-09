@@ -1,0 +1,28 @@
+<% if last_children? category %>
+  <% if original? category %>
+    <a href="#" class="list-group-item list-group-item-success" data-parent="#MainMenu"><%= category.name %></a>
+  <% else %>
+    <%= link_to category.name, products_path(:category_id => category.id),
+    class: "list-group-item last-children" %>
+  <% end %>
+<% else %>
+  <% if original? category %>
+    <a href="#demo<%= category.id %>" class="list-group-item list-group-item-success mutil-level"
+      data-toggle="collapse">
+        <%= category.name %> <i class="fa fa-caret-down"></i></a>
+        <div class="collapse" id="demo<%= category.id %>" >
+          <% if children category %>
+            <%= render @categories %>
+          <% end %>
+        </div>
+  <% else %>
+    <a href="#<%= category.id %>" class="list-group-item mutil-level-mid"
+      data-toggle="collapse"  ><%= category.name %>
+    <i class="fa fa-caret-down"></i></a>
+      <div class="collapse list-group-submenu" id="<%= category.id %>">
+        <% if children category %>
+          <%= render @categories %>
+        <% end %>
+      </div>
+  <% end %>
+<% end %>

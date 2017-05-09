@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310150923) do
+ActiveRecord::Schema.define(version: 20170310144639) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -21,35 +21,36 @@ ActiveRecord::Schema.define(version: 20170310150923) do
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
-  create_table "order_details", force: :cascade do |t|
-    t.integer  "quantity"
-    t.float    "price"
+  create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
+    t.decimal  "unit_price",  precision: 12, scale: 3
+    t.integer  "quantity"
+    t.decimal  "total_price", precision: 12, scale: 3
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "status"
-    t.float    "total_money"
+    t.decimal  "subtotal",         precision: 12, scale: 3
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.string   "address_shipping"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.float    "price"
-    t.integer  "quantity"
+    t.decimal  "price",       precision: 12, scale: 3
+    t.integer  "quantity",                             default: 0
     t.integer  "rate"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170310150923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id", "created_at"], name: "index_reviews_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

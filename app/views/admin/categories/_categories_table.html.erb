@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t"name" %></th>
+        <th><%= t "description" %></th>
+        <th><%= t "Action" %></th>
+      </tr>
+    </thead>
+    <% if @categories.all? %>
+      <% @categories.each do |category| %>
+      <tbody>
+        <tr>
+          <td><%= link_to category.name, admin_category_path(category) %></td>
+          <td><%= category.description %></td>
+          <td><%= link_to t("view.admin.categories.index.ed"),
+            edit_admin_category_path(category) %></td>
+          <td>
+            <%= link_to t("view.admin.user.index.delete"), [:admin,category],
+              method: :delete, data: {confirm: t("You sure?")} %>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    <% end %>
+  </table>
+</div>

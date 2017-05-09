@@ -8,10 +8,10 @@
       <% end %>
       <div class="span6">
         <div class="pull-right">
-          <%= link_to "#" do %>
-            <span class="btn btn-mini btn-primary">
+          <%= link_to cart_path do %>
+            <span class="btn btn-mini btn-primary cart-text">
               <i class="icon-shopping-cart icon-white"></i>
-              <%= t "items_in_cart" %>
+           <%= current_order.order_items.size %> Items in Cart (<%= number_to_currency current_order.subtotal %>)
             </span>
             <% end %>
         </div>
@@ -28,21 +28,21 @@
         <%= link_to root_path, class: "brand" do %>
           <%= image_tag "logo.png" %>
         <% end %>
-        <form class="form-inline navbar-search" method="post" action="" >
-          <input id="srchFld" class="srchTxt" type="text" />
-          <select class="srchTxt"></select>
-          <button type="submit" id="submitButton" class="btn btn-primary">
-            <%= t "search" %></button>
+        <form class="form-inline navbar-search">
+          <%= form_for products_path, :method => "get",id: "search-form" do %>
+        <%= text_field_tag :search, params[:search],id: "srchFld", class: "srchTxt"%>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-primary", id: "submitButton" %>
+        <% end %>
         </form>
         <ul id="topMenu" class="nav pull-right">
-          <li class=""><%= link_to t("view.layouts.header.s_offer") %></li>
+          <li class=""><%= link_to t("view.layouts.header.s_offer"), products_path %></li>
           <li class=""><%= link_to t("view.layouts.header.contact") %></li>
           <% if logged_in? %>
-            <%  if is_admin? %>
+            <%  if current_user.admin? %>
               <li class="">
-                <%= link_to admin_users_path do %>
+                <%= link_to admin_categories_path do %>
                   <span class="btn btn-large btn-success">
-                  <%= t "view.layouts.header.users" %></span>
+                  <%= t "view.layouts.header.admin" %></span>
                 <% end %>
               </li>
             <% else %>

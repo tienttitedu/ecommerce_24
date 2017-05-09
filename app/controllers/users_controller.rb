@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by id: params[:id]
+    @orders = @user.orders
     return if @user
       flash[:danger] = t "user_invalid"
       redirect_to root_url

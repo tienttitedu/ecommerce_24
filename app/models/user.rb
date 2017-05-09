@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
-  has_many :order
-  has_many :review
+  has_many :orders
+  has_many :reviews, dependent: :destroy
   has_many :suggest_product
 
   enum role: {user: Settings.user, admin: Settings.admin}
@@ -15,6 +15,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.password_minimum}, allow_nil: true
 
   has_secure_password
+
+  scope :list_users_desc, -> {order(created_at: :desc)}
 
   before_save  :downcase_email
 

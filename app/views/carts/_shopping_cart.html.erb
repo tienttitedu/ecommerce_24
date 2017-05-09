@@ -1,0 +1,8 @@
+  <h3> <%= t"shopping_cart" %> [ <small><%= current_order.order_items.size %> Item(s) </small>]<a href="products.html" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>
+<% @order_items.each do |order_item| %>
+  <%= render 'carts/cart_row', product: order_item.product, order_item: order_item %>
+<% end %>
+    <tr>
+      <td colspan="4" style="text-align:right"><strong><%= t"total_=" %></strong></td>
+      <td class="label label-important" style="display:block"> <strong> <%= number_to_currency current_order.subtotal %></strong></td>
+    </tr>

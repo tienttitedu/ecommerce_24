@@ -1,0 +1,63 @@
+<div class="span9">
+  <h3><%= t "list_products" %> <small class="pull-right"> <%= @products.count %> products are available </small></h3>
+  <hr class="soft"/>
+  <p>
+    <%= t "nowadays_the_lingerie_industry_is_one_of_the_most_successful" %>
+  </p>
+  <hr class="soft"/>
+  <%= form_for products_path, method: :get do |f| %>
+   <ul class="list-inline">
+   <% Settings.option.each do |condition| %>
+          <li>
+            <%= radio_button_tag :condition, condition,
+              (checked = true if params[:condition] == condition) %>
+            <%= t "product.#{condition}" %>
+          </li>
+        <% end %>
+        <li>
+          <%= f.submit t("filter"),
+            class: "btn btn-default list-inline" %>
+        </li>
+      </ul>
+    <% end %>
+  <br class="clr"/>
+  <div class="col-md-offset-4">
+        <%= will_paginate %>
+       </div>
+  <div class="tab-content">
+    <div class="tab-pane  active" id="blockView">
+      <ul class="thumbnails">
+      <% @products.each do |product| %>
+        <li class="span3">
+          <div class="thumbnail">
+    <%= link_to product_path(product), class: "brand" do %>
+    <%= image_tag product.image? ? product.image.url : "logan.jpg",class: "responsive" %>
+    <% end %>
+    <div class="caption">
+      <h5><%= link_to product.name, product_path(product) %></h5>
+      <p><%= raw get_short_description product %>...</p>
+      <h4 style="text-align:center">
+        <%= form_for @order_item, remote: true do |f| %>
+        <%= f.number_field :quantity, value: 1, class: "btn", min: 1 %>
+        <%= link_to product_path(product), class: "btn", id: "sx" do %>
+        <i class="icon-zoom-in"></i>
+        <% end %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.submit "Add to Cart", class: "btn" do %>
+              <i class="icon-shopping-cart">
+              <% end %>
+        <%= link_to number_to_currency product.price, class: "btn btn-primary" %>
+      <% end %>
+      </h4>
+    </div>
+  </div>
+        </li>
+        <% end %>
+      </ul>
+      <hr class="soft"/>
+    </div>
+  </div>
+  <div class="col-md-offset-4">
+        <%= will_paginate %>
+       </div>
+</div>

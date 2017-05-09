@@ -9,7 +9,7 @@
           </div>
           <div class="span9">
             <h3><%= @user.name %></h3>
-            <% if current_user?(@user) %> %>
+            <% if current_user? @user %>
               <%= link_to t("view.users.edit.update_pf"),
                 edit_user_path(current_user), class: "btn btn-info" %>
             <% end %>
@@ -17,6 +17,25 @@
             <h6><%= t "adress_:" %> <%= @user.address %></h6>
             <h6><%= t "phone_number_:" %> <%= @user.phone_number %></h6>
           </div>
+          <% if @orders.any? %>
+          <table class="table table-striped">
+         <thead>
+          <tr>
+            <th>Id</th>
+            <th>Total</th>
+            <th>Address Shipping</th>
+          </thead>
+          <% @orders.each do |order| %>
+          <tbody>
+            <tr>
+              <td><%= link_to order.id%></td>
+              <td><%= number_to_currency order.subtotal %></td>
+              <td><%= order.address_shipping %></td>
+           </tr>
+          <tbody>
+            <% end %>
+      </table>
+          <% end %>
         </section>
       </div>
     </div>

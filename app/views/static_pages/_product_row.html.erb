@@ -1,0 +1,24 @@
+<li class="span3">
+  <div class="thumbnail">
+    <%= link_to product_path(product), class: "brand" do %>
+    <%= image_tag product.image? ? product.image.url : "logan.jpg",class: "responsive" %>
+    <% end %>
+    <div class="caption">
+      <h5><%= link_to product.name, product_path(product) %></h5>
+      <p><%= raw get_short_description product %>...</p>
+      <h4 style="text-align:center">
+        <%= form_for @order_item, remote: true do |f| %>
+        <%= f.number_field :quantity, value: 1, class: "btn", min: 1 %>
+        <%= link_to product_path(product), class: "btn", id: "sx" do %>
+        <i class="icon-zoom-in"></i>
+        <% end %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.submit t("add_cart"), class: "btn" do %>
+              <i class="icon-shopping-cart">
+              <% end %>
+        <%= link_to number_to_currency product.price, class: "btn btn-primary" %>
+      <% end %>
+      </h4>
+    </div>
+  </div>
+</li>
